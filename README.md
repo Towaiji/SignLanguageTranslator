@@ -1,84 +1,41 @@
-# 🖐️ SignSpeak
+# SignSpeak: A Sign Language Messenger  
 
-## 📌 Overview  
-**SignSpeak** is a real-time tool that translates sign language gestures into text using **computer vision**, **MediaPipe**, and **machine learning**. It helps bridge communication gaps for individuals with hearing impairments.  
+## 🏆 Inspiration  
+The inspiration for this project came from the need for better communication between nurses and patients who use sign language. Hospitals can be stressful places, and effective communication is crucial, especially in emergency situations. Many patients struggle to express their needs due to language barriers, and we wanted to create a system that helps bridge that gap.  
 
-## 🎯 Features  
-- ✅ **Real-time Sign Language Detection** using a webcam  
-- ✅ **Hand Gesture Tracking** with MediaPipe  
-- ✅ **Machine Learning-based Gesture Classification**  
-- ✅ **User-friendly Chat Interface** for communication  
-- ✅ **Speech-to-Text Integration** (for nurses/assistants)  
-- ✅ **Role-based UI** (Patient & Nurse modes)  
+## 🔍 What We Learned  
+Through this project, we gained valuable insights into:  
+- **Real-time hand gesture recognition** using machine learning.  
+- **Building a web application** that integrates AI-driven sign detection.  
+- **Flask and OpenCV integration** for live video processing.  
+- **Frontend development** to ensure a smooth user experience.  
+- **Handling Web Speech API** to enable voice-to-text for non-signing users.  
 
-## 🏗️ Project Structure  
+## 🛠️ How We Built It  
+The project consists of three major components:  
 
-```plaintext
-📂 SignLanguageTranslator/
-│── 📜 README.md                # Documentation  
-│── 📂 models/                  # Trained ML models  
-│── 📂 data/                    # Gesture datasets  
-│── 📜 data_collection.py       # Captures gesture data  
-│── 📜 train_model.py           # Trains the ML model  
-│── 📜 realtime_prediction.py   # Real-time recognition  
-│── 📜 mp_utils.py              # MediaPipe utilities  
-│── 📜 main.py                  # Main execution file  
-│── 📂 static/                  # CSS & JavaScript files  
-│── 📂 templates/               # Web HTML templates  
-│── 📜 requirements.txt         # Dependencies  
+### 1️⃣ **Machine Learning & Gesture Recognition**  
+- **Python (Flask, OpenCV, TensorFlow)** was used to build a real-time hand gesture recognition system.  
+- The **train_model.py** script trains a model to recognize different hand signs.  
+- The **realtime_prediction.py** script processes live video input and predicts sign language gestures in real time.  
 
-⚙️ Installation & Setup
+### 2️⃣ **Backend API & Data Processing**  
+- **Flask server** is responsible for serving real-time predictions and handling requests from the frontend.  
+- The **data_collection.py** script was used to gather training data.  
+- The **mp_utils.py** file contains helper functions for image preprocessing and model inference.  
 
-1️⃣ Clone the Repository
+### 3️⃣ **Frontend Interface**  
+- The web application is built using **HTML, CSS, and JavaScript**.  
+- The **index.html** file provides the UI structure.  
+- The **script.js** file manages user interactions, role selection (nurse/patient), and integrates with the Flask API for sign recognition.  
+- **CSS animations** and UI styling enhance accessibility and usability.  
 
-git clone https://github.com/your-username/SignLanguageTranslator.git
-cd SignLanguageTranslator
+## 🚧 Challenges We Faced  
+- **Real-time processing delays**: Handling video input and making predictions fast enough for a seamless conversation was a challenge. We optimized the model and reduced computational overhead to improve response time.  
+- **Integrating speech recognition**: The Web Speech API was tricky to implement consistently across browsers, but we managed to ensure smooth voice input.  
+- **UI/UX Design**: Making an accessible and intuitive interface required iterative improvements based on feedback.  
 
-2️⃣ Install Dependencies
+## 🎯 Conclusion  
+This project was a rewarding experience that highlighted the importance of **AI for accessibility**. We hope that **SignSpeak** can make a difference in real-world healthcare settings, improving communication and inclusivity for patients with hearing impairments.  
 
-Ensure Python 3.8+ is installed, then run:
-
-pip install -r requirements.txt
-
-3️⃣ Run the Application
-
-python main.py
-
-🚀 Usage
-
-1️⃣ Select a Role: Choose between Nurse (Text/Voice) or Patient (Sign Language).
-2️⃣ For Patients: Activate Gesture Detection to recognize signs.
-3️⃣ For Nurses: Use text input or voice-to-text for communication.
-4️⃣ Chat Window: Messages appear in real-time for seamless interaction.
-
-🛠️ Technical Stack
-	•	Python (Core programming)
-	•	OpenCV (Video processing)
-	•	MediaPipe (Hand gesture tracking)
-	•	TensorFlow/Keras (Model training)
-	•	Flask (Web-based interface)
-	•	JavaScript (Web Speech API) (Voice-to-text support)
-
-📊 Model Training
-
-# Collect gesture data
-python data_collection.py  
-
-# Train the model
-python train_model.py  
-
-# Run real-time gesture detection
-python realtime_prediction.py  
-
-
-🤝 Contributing
-	1.	Fork the repository
-	2.	Create a new branch: git checkout -b feature-name
-	3.	Commit changes: git commit -m "Added feature"
-	4.	Push to branch: git push origin feature-name
-	5.	Open a Pull Request
-
-📜 License
-
-This project is licensed under the MIT License.
-
+🚀 *Made with 💙 for inclusive care!*
