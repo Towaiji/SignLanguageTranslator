@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         micBtn.style.display = 'inline-block'; // Show for nurse
         enterChat();
     });
-    
+
 
     patientBtn.addEventListener('click', () => {
         userRole = 'patient';
@@ -70,18 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleLabel.textContent = detectionToggle.checked ? 'Detection: ON' : 'Detection: OFF';
         });
 
-        // Detection runs every 5s if toggle is ON AND user is patient
         setInterval(() => {
             if (userRole !== 'patient' || !detectionToggle.checked) return;
 
-            const word = simulatedWords[wordIndex % simulatedWords.length];
-            wordIndex++;
-
-            outputText.textContent = word;
-
-            // Add word to input, build sentence
-            chatInput.value = (chatInput.value + ' ' + word).trim();
+            fetch('http://127.0.0.1:5000/get_word')
+                .then(res => res.json())
+                .then(data => {
+                    const word = data.word;
+                    if (word) {
+                        outputText.textContent = word;
+                        chatInput.value = (chatInput.value + ' ' + word).trim();
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching word:', err);
+                });
         }, 5000);
+
     }
 
     sendBtn.addEventListener('click', () => {
@@ -99,17 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
         div.style.marginBottom = '0.5rem';
         chatLog.appendChild(div);
         chatLog.scrollTop = chatLog.scrollHeight;
-    
+
         // Save to chat history
         chatHistory.push(message);
     }
-    
+
     switchRoleBtn.addEventListener('click', () => {
         if (webcam.srcObject) {
             webcam.srcObject.getTracks().forEach(track => track.stop());
             webcam.srcObject = null;
         }
-    
+
         // Restore chat from history
         chatLog.innerHTML = '';
         chatHistory.forEach(msg => {
@@ -118,14 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
             div.style.marginBottom = '0.5rem';
             chatLog.appendChild(div);
         });
-    
+
         chatInput.value = '';
         chatApp.classList.add('hidden');
         roleSelection.classList.remove('hidden');
         outputText.textContent = '...';
     });
-    
-    
+
+
     // 🗣️ Voice-to-text using Web Speech API
     let recognition;
     if ('webkitSpeechRecognition' in window) {
@@ -180,5 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
         chatHistory = []; // if you're using chatHistory to persist
         chatInput.value = '';
     });
-    
+
 });

@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Language Messenger</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Messenger</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="app-container">
-    <!-- Role Selection -->
-    <section class="role-selection" id="role-selection">
-      <h2>Select your role</h2>
-      <div class="role-buttons">
-        <button id="nurse-btn">🧑‍⚕️ Nurse</button>
-        <button id="patient-btn">🧑‍🦯 Patient</button>
-      </div>
-    </section>
-
-    <!-- Main Chat App -->
-    <section class="chat-app hidden" id="chat-app">
-        <header class="app-header">
-            <h1 id="role-header">SignSpeak</h1>
-            <div class="header-actions">
-              <button id="clear-chat-btn" title="Clear Chat">🗑️</button>
-              <button id="switch-role-btn" class="switch-role-btn">Switch Role</button>
+    <div class="app-container">
+        <!-- Role Selection -->
+        <section class="role-selection" id="role-selection">
+            <h2>Select your role</h2>
+            <div class="role-buttons">
+                <button id="nurse-btn">🧑‍⚕️ Nurse</button>
+                <button id="patient-btn">🧑‍🦯 Patient</button>
             </div>
-          </header>
-          
-          
+        </section>
 
-      <main>
-        <section class="video-section">
-          <video id="webcam" autoplay></video>
-          <div class="video-top-bar">
-            <p class="detected-text">Detected: <span id="output-text">...</span></p>
-            <div id="detection-toggle-wrapper">
-                <div class="toggle-container">
-                  <span id="toggle-label">Detection: OFF</span>
-                  <label class="switch">
-                    <input type="checkbox" id="detection-toggle" />
-                    <span class="slider round"></span>
-                  </label>
+        <!-- Main Chat App -->
+        <section class="chat-app hidden" id="chat-app">
+            <header class="app-header">
+                <h1 id="role-header">SignSpeak</h1>
+                <div class="header-actions">
+                    <button id="clear-chat-btn" title="Clear Chat">🗑️</button>
+                    <button id="switch-role-btn" class="switch-role-btn">Switch Role</button>
                 </div>
-              </div>
-              
-          </div>
-          
-          
+            </header>
+
+
+
+            <main>
+                <section class="video-section">
+                    <img id="opencv-feed" src="http://127.0.0.1:5000/video_feed" alt="AI Video Feed" style="max-width: 100%; border-radius: 12px;">
+                    <div class="video-top-bar">
+                        <p class="detected-text">Detected: <span id="output-text">...</span></p>
+                        <div id="detection-toggle-wrapper">
+                            <div class="toggle-container">
+                                <span id="toggle-label">Detection: OFF</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="detection-toggle" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+                <section class="chat-section">
+                    <h2 class="chat-title">Chat Box 💬 </h2>
+                    <div class="chat-log" id="chat-log">
+                        <!-- Chat messages appear here -->
+                    </div>
+                    <div class="input-area">
+                        <input type="text" id="chat-input" placeholder="Type a message...">
+                        <button id="mic-btn" title="Start Voice Input">🎤</button>
+                        <button id="send-btn">Send</button>
+                    </div>
+
+                </section>
+            </main>
+
+            <footer>
+                <p>Made with 💙 for inclusive care</p>
+            </footer>
         </section>
+    </div>
 
-        <section class="chat-section">
-            <h2 class="chat-title">Chat Box 💬 </h2>
-          <div class="chat-log" id="chat-log">
-            <!-- Chat messages appear here -->
-          </div>
-          <div class="input-area">
-            <input type="text" id="chat-input" placeholder="Type a message...">
-            <button id="mic-btn" title="Start Voice Input">🎤</button>
-            <button id="send-btn">Send</button>
-          </div>
-          
-        </section>
-      </main>
-
-      <footer>
-        <p>Made with 💙 for inclusive care</p>
-      </footer>
-    </section>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
