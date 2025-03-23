@@ -10,7 +10,7 @@ DATA_PATH = os.path.join('MP_Data')
 actions = np.array(['hello', 'thanks', 'iloveyou'])
 no_sequences = 30      # Number of videos per action
 sequence_length = 30   # Frames per video
-start_folder = 30      # Starting folder index
+start_folder = 1      # Starting folder index
 
 # Create folders for each action and sequence
 for action in actions:
