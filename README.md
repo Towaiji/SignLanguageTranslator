@@ -1,7 +1,7 @@
-# 🖐️ Sign Speak
+# 🖐️ SignSpeak
 
 ## 📌 Overview  
-**Sign Speak** is a real-time tool that translates sign language gestures into text using **computer vision**, **MediaPipe**, and **machine learning**. It helps bridge communication gaps for individuals with hearing impairments.  
+**SignSpeak** is a real-time tool that translates sign language gestures into text using **computer vision**, **MediaPipe**, and **machine learning**. It helps bridge communication gaps for individuals with hearing impairments.  
 
 ## 🎯 Features  
 - ✅ **Real-time Sign Language Detection** using a webcam  
