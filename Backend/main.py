@@ -14,12 +14,12 @@ if __name__ == "__main__":
 
     if command == "data":
         # Run the data collection script
-        run_script("Backend/data_collection.py")
+        run_script("data_collection.py")
     elif command == "train":
         # Run the training script
-        run_script("Backend/train_model.py")
+        run_script("train_model.py")
     elif command == "predict":
         # Run the real-time prediction script
-        run_script("Backend/realtime_prediction.py")
+        run_script("realtime_prediction.py")
     else:
         print("Invalid command. Use 'data', 'train', or 'predict'.")
