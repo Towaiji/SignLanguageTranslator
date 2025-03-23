@@ -1,7 +1,7 @@
-# 🖐️ Sign Language Translator  
+# 🖐️ Sign Speak
 
 ## 📌 Overview  
-The **Sign Language Translator** is a real-time tool that translates sign language gestures into text using **computer vision**, **MediaPipe**, and **machine learning**. It helps bridge communication gaps for individuals with hearing impairments.  
+**Sign Speak** is a real-time tool that translates sign language gestures into text using **computer vision**, **MediaPipe**, and **machine learning**. It helps bridge communication gaps for individuals with hearing impairments.  
 
 ## 🎯 Features  
 - ✅ **Real-time Sign Language Detection** using a webcam  
